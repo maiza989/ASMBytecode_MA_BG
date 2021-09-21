@@ -40,10 +40,7 @@ public class GenInput {
 	            /**
 	             * Getting input from the user
 	             */
-	           
-	            mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;"); 
-				mv.visitLdcInsn("Enter a number between 0 and 100:");
-				mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
+	            
 				
 	            mv.visitTypeInsn(Opcodes.NEW, "class java/util/Scanner");
 	            mv.visitInsn(Opcodes.DUP);
@@ -51,9 +48,13 @@ public class GenInput {
 	            mv.visitMethodInsn(Opcodes.INVOKESPECIAL, "java/util/Scanner","<init>","(Ljava/io/InputStream;)V", false);
 	            mv.visitVarInsn(Opcodes.ASTORE, 1);
 	            mv.visitVarInsn(Opcodes.ALOAD, 1);
-	            mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "hava/util/Scanner","nextInt:", "()I", false);
-	            mv.visitVarInsn(Opcodes.ISTORE, 2);
-	            mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
+	            mv.visitLabel(l0);
+	            mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;"); 
+				mv.visitLdcInsn("Enter a number between 0 and 100:");
+				mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
+	          //  mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "hava/util/Scanner","nextInt:", "()I", false);
+	           // mv.visitVarInsn(Opcodes.ISTORE, 2);
+	           // mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
 	            // end of GetInput
 	            
 	            
