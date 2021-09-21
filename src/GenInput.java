@@ -1,4 +1,4 @@
-/**
+/*
  * A class that gets input from the user using Scanner class for (Integer/Long/Double) in bytecode using ASM 9.2
  * @author Maitham Alghamgham, Bobby Gabriel
  * @version 1.0
@@ -6,10 +6,11 @@
  * CS322 - Compiler Construction
  * Fall 2021
  */
+
+
 import static utils.Utilities.writeFile;
 
 import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
@@ -32,37 +33,61 @@ public class GenInput {
 
 	        {
 	            MethodVisitor mv=cw.visitMethod(Opcodes.ACC_PUBLIC+Opcodes.ACC_STATIC, "main", "([Ljava/lang/String;)V", null, null);
-	            /**
-	             * Creating labels
-	             */
-	            Label l0 = new Label();
+			
 	            mv.visitCode();
 	            /**
 	             * Getting input from the user
 	             */
 	            
-				
-	            mv.visitTypeInsn(Opcodes.NEW, "class java/util/Scanner");
-	            mv.visitInsn(Opcodes.DUP);
-	            mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "in", "Ljava/io/InputStream;");
-	            mv.visitMethodInsn(Opcodes.INVOKESPECIAL, "java/util/Scanner","<init>","(Ljava/io/InputStream;)V", false);
-	            mv.visitVarInsn(Opcodes.ASTORE, 1);
-	            mv.visitVarInsn(Opcodes.ALOAD, 1);
-	            mv.visitLabel(l0);
-	            mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;"); 
-				mv.visitLdcInsn("Enter a number between 0 and 100:");
-				mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
-	          //  mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "hava/util/Scanner","nextInt:", "()I", false);
-	           // mv.visitVarInsn(Opcodes.ISTORE, 2);
-	           // mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-	            // end of GetInput
+	            mv.visitTypeInsn(Opcodes.NEW, "java/util/Scanner");
+            	mv.visitInsn(Opcodes.DUP);
+            	mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "in", "Ljava/io/InputStream;");
+            	mv.visitMethodInsn(Opcodes.INVOKESPECIAL, "java/util/Scanner", "<init>", "(Ljava/io/InputStream;)V", false);
+            	mv.visitVarInsn(Opcodes.ASTORE, 1);
+            	mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
+            	mv.visitLdcInsn("Enter an Integer: ");
+            	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
+            	mv.visitVarInsn(Opcodes.ALOAD, 1);
+            	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/util/Scanner", "nextInt", "()I", false);
+            	mv.visitInsn(Opcodes.POP);
+            	//end Integer input
+            
+            
+                                   
+            	mv.visitTypeInsn(Opcodes.NEW, "java/util/Scanner");
+            	mv.visitInsn(Opcodes.DUP);
+            	mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "in", "Ljava/io/InputStream;");
+            	mv.visitMethodInsn(Opcodes.INVOKESPECIAL, "java/util/Scanner", "<init>", "(Ljava/io/InputStream;)V", false);
+            	mv.visitVarInsn(Opcodes.ASTORE, 1);
+            	mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
+            	mv.visitLdcInsn("Enter a Double: ");
+            	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
+            	mv.visitVarInsn(Opcodes.ALOAD, 1);
+            	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/util/Scanner", "nextDouble", "()D", false);
+            	mv.visitInsn(Opcodes.POP2);
+            	//end Double input
+            
+            
+            
+            	mv.visitTypeInsn(Opcodes.NEW, "java/util/Scanner");
+            	mv.visitInsn(Opcodes.DUP);
+            	mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "in", "Ljava/io/InputStream;");
+            	mv.visitMethodInsn(Opcodes.INVOKESPECIAL, "java/util/Scanner", "<init>", "(Ljava/io/InputStream;)V", false);
+            	mv.visitVarInsn(Opcodes.ASTORE, 1);
+            	mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
+            	mv.visitLdcInsn("Enter a Long: ");
+            	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
+            	mv.visitVarInsn(Opcodes.ALOAD, 1);
+            	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/util/Scanner", "nextLong", "()J", false);
+            	mv.visitInsn(Opcodes.POP2);
+            	//end Long input
 	            
 	            
 	            
 	            
-	            mv.visitInsn(Opcodes.RETURN);
-	            mv.visitMaxs(0,0);
-	            mv.visitEnd();
+	        mv.visitInsn(Opcodes.RETURN);
+	        mv.visitMaxs(0,0);
+	        mv.visitEnd();
 	        }// end of MethodVisitor
 
 	        cw.visitEnd();
