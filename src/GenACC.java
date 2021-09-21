@@ -1,3 +1,11 @@
+/*
+ * A class that gets an integer input from the user using Scanner class and prints out the sum of all integers that came before that user input.
+ * @author Maitham Alghamgham, Bobby Gabriel
+ * @version 1.0
+ * Compiler Project 2
+ * CS322 - Compiler Construction
+ * Fall 2021
+ */
 import static utils.Utilities.writeFile;
 
 import org.objectweb.asm.ClassWriter;
