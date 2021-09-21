@@ -1,5 +1,5 @@
 /**
- * A class that subtract two numbers (Integer/Long/Float) in bytecode using ASM 9.2
+ * A class that subtract two numbers (Integer/Long/Double) in bytecode using ASM 9.2
  * @author Maitham Alghamgham, Bobby Gabriel
  * @version 1.0
  * Compiler Project 2
