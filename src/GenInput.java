@@ -36,7 +36,7 @@ public class GenInput {
 			
 	            mv.visitCode();
 	            /**
-	             * Getting input from the user
+	             * Getting input from the user for Integer/Double/Long
 	             */
 	            
 	            mv.visitTypeInsn(Opcodes.NEW, "java/util/Scanner");
