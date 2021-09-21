@@ -40,40 +40,20 @@ public class GenWhile {
              */
         	mv.visitInsn(Opcodes.ICONST_0);  	
         	mv.visitVarInsn(Opcodes.ISTORE, 1);
+        	mv.visitLabel(l0);
         	mv.visitVarInsn(Opcodes.ILOAD, 1);
-        	mv.visitInsn(Opcodes.ICONST_5);
-        	mv.visitVarInsn(Opcodes.ISTORE, 2);
-        	mv.visitVarInsn(Opcodes.ILOAD, 2);
-        	mv.visitJumpInsn(Opcodes.IF_ICMPGE, l0);
+        	mv.visitInsn(Opcodes.ICONST_5);	
+        	mv.visitJumpInsn(Opcodes.IF_ICMPGE, l1);
         	mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
         	mv.visitVarInsn(Opcodes.ILOAD, 1);
         	mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(I)V", false);
         	mv.visitIincInsn(1, 1);
-        	mv.visitJumpInsn(Opcodes.GOTO, l0);
-        	
-        	mv.visitLabel(l0);
+        	mv.visitJumpInsn(Opcodes.GOTO, l0);	
         	// End of While loop
-        	
-        	
-        	/*
-            mv.visitLdcInsn((Double) 4.00);
-            mv.visitVarInsn(Opcodes.DSTORE, 1);
-            mv.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
-            mv.visitVarInsn(Opcodes.DLOAD, 1);
-            mv.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(D)V", false);
-            mv.visitVarInsn(Opcodes.DLOAD, 1);
-            mv.visitInsn(Opcodes.DCONST_1);
-            mv.visitInsn(Opcodes.DADD);
-            mv.visitVarInsn(Opcodes.DSTORE, 1);
-            mv.visitLdcInsn((Double) 7.00);
-            mv.visitInsn(Opcodes.DCMPG);
-            mv.visitJumpInsn(Opcodes.IFLT, l0);
-            */
-         
-     
-            
+
+            mv.visitLabel(l1);
             mv.visitInsn(Opcodes.RETURN);
-            mv.visitMaxs(0,0);
+            mv.visitMaxs(2,3);
             mv.visitEnd();
             
             
