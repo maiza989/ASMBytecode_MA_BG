@@ -5,12 +5,12 @@ import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
-public class GenINPWhile {
+public class GenACC {
 
 	 public static void main(String[] args){
 
 	        ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
-	        cw.visit(Opcodes.V11, Opcodes.ACC_PUBLIC,"GetINPWhile", null, "java/lang/Object",null);
+	        cw.visit(Opcodes.V11, Opcodes.ACC_PUBLIC,"GetACC", null, "java/lang/Object",null);
 	        
 	        {
 				MethodVisitor mv=cw.visitMethod(Opcodes.ACC_PUBLIC, "<init>", "()V", null, null);
@@ -78,7 +78,7 @@ public class GenINPWhile {
 
 	        byte[] b = cw.toByteArray();
 
-	        writeFile(b,"GetINPWhile.class");
+	        writeFile(b,"GetACC.class");
 	        
 	        System.out.println("Done!");
 	    }//end main
